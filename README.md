@@ -10,6 +10,9 @@
 > ### Start the node manager and resource manager
 >> start-yarn.sh
 
+> ### Name node leave from safe mode
+>> hadoop dfsadmin -safemode leave
+
 > ### To verify whether the services are running
 >> jps
 
@@ -31,3 +34,21 @@
 
 > ### Check permissions
 >> hdfs dfs -ls /
+
+
+## HDFS Command
+> ### Start Hive service
+>> nohup hive --service hiveserver2 > hiveserver2.log 2>&1 &
+
+
+## Kafka Monitoring
+![Kafka_Monitor](https://github.com/tungchihwei/IoT_Data_Transfer_and_Analysis/assets/31777680/43ecb770-0c2e-4cee-ad6a-d13e5f19ee18)
+
+## Redis Monitoring
+![Redis_Monitor](https://github.com/tungchihwei/IoT_Data_Transfer_and_Analysis/assets/31777680/a4052057-8a82-445d-a304-2a90b6193089)
+
+## Final Visualization
+![Visual](https://github.com/tungchihwei/IoT_Data_Transfer_and_Analysis/assets/31777680/9d5003b0-38e1-4470-8699-f3d3d459a07f)
+
+
+
