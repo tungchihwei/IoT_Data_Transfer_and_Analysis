@@ -1,0 +1,11 @@
+hdfs dfs -mkdir /test
+
+
+CREATE TABLE iot (
+  type string,
+  detail string,
+  product_id string,
+  action_timestamp timestamp
+)
+ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
+WITH SERDEPROPERTIES ('timestamp.formats'='yyyy-MM-dd HH:mm:ss');

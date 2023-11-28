@@ -1,0 +1,119 @@
+https://learnubuntu.com/install-hadoop/
+
+
+>>>> sudo su - hadoop
+
+
+Step 6: Start the Hadoop cluster
+
+To start the Hadoop cluster, you will have to start the previously configured nodes.
+
+So let's start with starting the NameNode and DataNode:
+
+>>>> start-dfs.sh
+
+start the NameNode and DataNode in Hadoop cluster in ubuntu
+
+Next, start the node manager and resource manager:
+
+>>>> start-yarn.sh
+
+start the node manager and resource manager to start the Hadoop cluster in ubuntu
+
+To verify whether the services are running as intended, use the following command:
+
+>>>> jps
+
+check running services for Hadoop cluster in ubuntu
+Step 7: Access the Hadoop web interface
+
+To access the Hadoop web interface, you will have to know your IP and append the port no 9870 in your address bar:
+
+http://server-IP:9870
+
+
+get server ip:
+>>>> hostname -I
+
+
+
+
+# start-all.sh & stop-all.sh 
+>>>> start-all.sh
+
+Create tmp Directory
+
+Create a tmp directory within the HDFS storage layer. This directory is going to store the intermediary data Hive sends to the HDFS:
+
+>>>> hdfs dfs -mkdir /tmp
+
+Add write and execute permissions to tmp group members:
+
+>>>> hdfs dfs -chmod g+w /tmp
+
+Check if the permissions were added correctly:
+
+>>>> hdfs dfs -ls /
+
+
+Create warehouse Directory
+
+Create the warehouse directory within the /user/hive/ parent directory:
+
+>>>> hdfs dfs -mkdir -p /user/hive/warehouse
+
+Add write and execute permissions to warehouse group members:
+
+>>>> hdfs dfs -chmod g+w /user/hive/warehouse
+
+Check if the permissions were added correctly:
+
+>>>> hdfs dfs -ls /user/hive
+
+
+
+if shows name node is in safe mode
+>>>> hadoop dfsadmin -safemode leave
+
+
+
+
+================================
+Thrift interface to Hive
+>>>> hive --service hiveserver2
+
+run hive in background
+>>>> nohup hive --service hiveserver2 > hiveserver2.log 2>&1 &
+check log
+>>>> tail -f hiveserver2.log
+
+
+
+
+
+
+
+
+==============================
+run shell script on another user
+>>>> sudo -u hadoop /path/to/your/script.sh
+
+
+
+
+
+
+
+==============================
+
+/home/hadoop/apache-hive-3.1.2-bin/tmp
+
+
+
+
+  <property>
+    <name>javax.jdo.option.ConnectionPassword</name>
+    <value>mine</value>
+    <description>password to use against metastore database</description>
+  </property>
+
